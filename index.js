@@ -1,4 +1,4 @@
-// In index.js, write a constructor function called BoardMember that sets the following properties: name, homeState, and training.
+// In index.js, write a constructor function called BoardMember.prototype that sets the following properties: name, homeState, and training.
 
 // Add following methods to the class: - veto — returns No, I must disagree
 // approve — returns You can do that!
@@ -10,24 +10,28 @@ function BoardMember(name, homeState, training) {
     this.name = name;
     this.homeState = homeState;
     this.training = training;
-
-    this.veto = () => (
+}
+    BoardMember.prototype.veto = () => (
         'No, I must disagree'
     )
 
-    this.approve = () => (
+    BoardMember.prototype.approve = () => (
         'You can do that!'
     )
 
-    this.doCharity = () => (
+    BoardMember.prototype.doCharity = () => (
         'I like to help people.'
     )
 
-    this.releasePressStatement = () => (
+    BoardMember.prototype.releasePressStatement = () => (
       "You will see great things from Scuber."
     )
 
-    this.sayHi = () => (
-        `Hi, my name is ${this.name}. I am from ${this.homeState}, and I was trained in ${this.training}.`
-    )
-}
+
+    BoardMember.prototype.sayHi = function(){
+        return `Hi, my name is ${this.name}. I am from ${this.homeState}, and I was trained in ${this.training}.`
+      }
+
+    // BoardMember.prototype.sayHi = () => (
+    //     `Hi, my name is ${this.name}. I am from ${this.homeState}, and I was trained in ${this.training}.`
+    // )
